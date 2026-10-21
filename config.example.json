@@ -1,0 +1,31 @@
+{
+  "vk": {
+    "token": "${VK_TOKEN}",
+    "groupId": 123456789,
+    "allowlist": [1234567]
+  },
+  "nodes": {
+    "laptop": {
+      "pairing": "https://app.paseo.sh/#offer=PASTE_THE_LINK_FROM_paseo_daemon_pair",
+      "cwd": "/Users/me/code/app"
+    },
+    "server": {
+      "url": "100.64.0.2:6767",
+      "password": "${SERVER_DAEMON_PASSWORD}",
+      "cwd": "/srv/projects/api",
+      "provider": "claude"
+    }
+  },
+  "defaults": {
+    "node": "laptop",
+    "provider": "codex",
+    "busy": "steer"
+  },
+  "transcription": {
+    "kind": "openai",
+    "apiKey": "${OPENAI_API_KEY}",
+    "model": "whisper-1",
+    "language": "ru"
+  },
+  "stateFile": "paseo-vk-bridge.state.json"
+}

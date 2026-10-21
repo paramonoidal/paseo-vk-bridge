@@ -1,0 +1,41 @@
+{
+  "name": "paseo-vk-bridge",
+  "version": "0.1.0",
+  "description": "Chat with Paseo agents on your nodes through a personal VK conversation",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "paseo-vk-bridge": "dist/main.js"
+  },
+  "files": [
+    "dist",
+    "config.example.json"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/main.js",
+    "dev": "tsx src/main.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "format": "biome format --write .",
+    "format:check": "biome format .",
+    "test:e2e": "vitest run src/e2e --testTimeout=90000"
+  },
+  "dependencies": {
+    "@getpaseo/client": "0.12.0",
+    "@getpaseo/protocol": "0.12.0",
+    "ws": "^8.18.3",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.2.4",
+    "@types/node": "^22.18.6",
+    "@types/ws": "^8.18.1",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  }
+}

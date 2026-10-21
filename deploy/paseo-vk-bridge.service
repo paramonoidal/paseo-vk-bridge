@@ -1,0 +1,18 @@
+[Unit]
+Description=Paseo VK bridge
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/paseo-vk-bridge
+EnvironmentFile=/opt/paseo-vk-bridge/.env
+ExecStart=/usr/bin/node /opt/paseo-vk-bridge/dist/main.js --config /opt/paseo-vk-bridge/config.json
+Restart=on-failure
+RestartSec=5
+# SIGTERM lets the bridge post pending output and save its state.
+KillSignal=SIGTERM
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target
