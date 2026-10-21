@@ -86,6 +86,8 @@ node dist/main.js --config config.json --check   # verifies the VK token and eve
 node dist/main.js --config config.json
 ```
 
+If the host reaches the internet only through an HTTP proxy, set `NODE_USE_ENV_PROXY=1`. Without it, Node's `fetch` ignores `HTTPS_PROXY` and every VK request fails.
+
 `deploy/paseo-vk-bridge.service` is a systemd unit for `/opt/paseo-vk-bridge`. On `SIGTERM` the bridge posts pending output and saves its state before exiting.
 
 ## Use it from VK

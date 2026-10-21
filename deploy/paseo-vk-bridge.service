@@ -7,6 +7,8 @@ Wants=network-online.target
 Type=simple
 WorkingDirectory=/opt/paseo-vk-bridge
 EnvironmentFile=/opt/paseo-vk-bridge/.env
+# Behind an HTTP proxy, Node's fetch uses HTTPS_PROXY only with this set.
+#Environment=NODE_USE_ENV_PROXY=1
 ExecStart=/usr/bin/node /opt/paseo-vk-bridge/dist/main.js --config /opt/paseo-vk-bridge/config.json
 Restart=on-failure
 RestartSec=5
